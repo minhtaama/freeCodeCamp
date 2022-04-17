@@ -98,6 +98,22 @@ input, select, textarea {
     font-weight: 100;
     width: 300px;
 }
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+        height: 30px;
+    }
+    h2 {
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+    .radio-label {
+        font-size: 0.9em;
+    }
+    .checkbox-label {
+        font-size: 0.9em;
+    }
+}
 .optional {
     font-size: 0.8rem;
     font-weight: 300;
