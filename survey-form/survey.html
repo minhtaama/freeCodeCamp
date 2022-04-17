@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cảm nhận về ngài X</title>
+    <link rel="stylesheet" href="survey.css">
+</head>
+<body>
+    <header>
+        <h1 id="title" class="text-center">PHIẾU KHẢO SÁT</h1>
+        <h2 id="title2" class="text-center">Mức độ tín nhiệm của ngài X</h2>
+        <hr color="white" width="50%">
+        <p id="description" class="text-center">Cám ơn quý độc giả đã bỏ thời gian để tham gia khảo sát. <br>Vui lòng điền đầy đủ các trường thông tin để phiếu khảo sát được coi là hợp lệ.</p>
+    </header>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <div class="container">
+        <form id="survey-form" action="" method="">
+            <div class="form-group">
+                <label for="name" id="name-label">Tên của bạn:</label>
+                <input type="text" id="name" name="name" placeholder="Nhập tên của bạn" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email" id="email-label">Email của bạn:</label>
+                <input type="email" id="email" name="email" placeholder="Nhập email của bạn" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="number" id="number-label">Số điện thoại của bạn:</label>
+                <input type="number" id="number" name="phone" placeholder="Nhập số điện thoại của bạn" class="form-control" min="10" max="12" required>
+            </div>
+            <div class="form-group">
+                <label for="dob" id="dob-label">Ngày sinh:<span class="optional">(Không bắt buộc)</span></label>
+                <input type="date" id="dob" name="date-of-birth" class="form-control">
+            </div>
+            <div class="form-group">
+                <label id="gender-label" for="dropdown">Giới tính</label>
+                <select name="gender" id="dropdown" class="form-control" required>
+                    <option disabled selected value="">Chọn giới tính của bạn</option>
+                    <option value="male">Đàn ông</option>
+                    <option value="female">Đàn bà</option>
+                    <option value="dog">Chó</option>
+                    <option value="phananh">MC. Phan Anh</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <span>Quan điểm của bạn đối với ngài X:</span>
+                    <div class="multiple-choices">   
+                        <label class="radio-label">    
+                            <input type="radio" name="feel" value="love" class="form-radio">Yêu quý
+                        </label>
+                        <label class="radio-label">    
+                            <input type="radio" name="feel" value="okayiguess" class="form-radio" checked>Tàm tạm
+                        </label>
+                        <label class="radio-label">    
+                            <input type="radio" name="feel" value="hate" class="form-radio">Đáng ghét
+                        </label>
+                        <label class="radio-label">    
+                            <input type="radio" name="feel" value="hehe" class="form-radio">Hehe
+                        </label>
+                        <label class="radio-label">    
+                            <input type="radio" name="feel" value="X" class="form-radio"><img style=" height: 1.2rem;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw4B-0L1sHkI0fkkVEWd-nZV3h9Rb-p9i9cw&usqp=CAU" alt="X">
+                        </label>
+                    </div>    
+            </div>
+            <div class="form-group">
+                <span>Chọn những tính chất mà bạn cho rằng hợp với ngài X nhất:<span class="optional">(Chọn tất cả tính chất bạn thấy đúng)</span></span>
+                    <div class="multiple-choices">   
+                        <label class="checkbox-label">    
+                            <input type="checkbox" name="desc" value="bussinessman" class="form-checkbox">Một vị doanh nhân thành đạt
+                        </label>
+                        <label class="checkbox-label">    
+                            <input type="checkbox" name="desc" value="politician" class="form-checkbox">Một người chính trị gia thành đạt
+                        </label>
+                        <label class="checkbox-label">    
+                            <input type="checkbox" name="desc" value="1m50-90kg" class="form-checkbox">Cao 1m50, nặng 90kg, đầu hói
+                        </label>
+                        <label class="checkbox-label">    
+                            <input type="checkbox" name="desc" value="Phuc" class="form-checkbox">Tên là Nguyễn Xuân Phúc
+                        </label>
+                        <label class="checkbox-label">    
+                            <input type="checkbox" name="desc" value="hehe" class="form-checkbox">Có một nụ cười đẹp
+                        </label>
+                        <label class="checkbox-label">    
+                            <input type="checkbox" name="desc" value="Americano" class="form-checkbox">Mang trong mình dòng máu Mỹ
+                        </label>
+                        <label class="checkbox-label">    
+                            <input type="checkbox" name="desc" value="India" class="form-checkbox">Có quốc tịch Ấn Độ<span style="display: block; margin:0 0 0 2.6rem; font-weight: 200; font-size: 0.5rem;">(ăn tay phải, chùi đít tay trái)</span>
+                        </label>
+                        <label class="checkbox-label">    
+                            <input type="checkbox" name="desc" value="terrorist" class="form-checkbox">Họ Bin-laden, tên Osama
+                        </label>
+                    </div>    
+            </div>
+            <div class="form-group">
+                <label for="feel-input" id="feel-label">Hãy nêu cảm nghĩ của bạn về ngài X:</label>
+                <textarea rows="10" id="feel-input" class="form-control">...</textarea>
+            </div>
+            <hr color="white" width="30%" size="1">
+            <div class="form-group">
+                <button type="submit" id="submit" formtarget="_self" class="btn-submit">GỬI KHẢO SÁT</button>
+            </div>
+            <div class="form-group">
+                <button type="reset" class="btn-reset" required>NHẬP LẠI</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

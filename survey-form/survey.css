@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+:root {
+    font-family: 'Oswald', sans-serif;
+    font-size: larger;
+}
+body {
+    background-image: 
+        linear-gradient(0deg, rgba(240, 248, 255, 0.6), rgb(41, 41, 112),rgb(26, 26, 71)),
+        url(https://3.pik.vn/20151fd5c780-5457-478f-9017-e0475ac26983.jpeg);
+    background-size: contain;
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+h1 {
+    font-size: 8vw;
+    height: 6vw;
+    color: aliceblue;
+}
+h2 {
+    font-size: 4vw;
+    color: aliceblue;
+}
+@media (max-width: 600px) {
+    h1 {
+        font-size: 3rem;
+        height: 40px;
+    }
+    h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+}
+#description {
+    display: block;
+    margin: 3rem auto 1rem auto;
+    font-style: italic;
+    color: aliceblue;
+}
+label, span {
+    display: block;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+form {
+    font-size: 1.2rem;
+}
+input, select, textarea {
+    font-size: inherit;
+    font-family: inherit;
+}
+.container {
+    background-color: rgba(56, 56, 125, 0.6);
+    border: 2px solid rgba(240, 248, 255, 0.6);
+    padding: 50px;
+    max-width: 600px;
+    display: block;
+    margin: 0px auto 45vw auto;
+    color: aliceblue;
+    font-weight: 400;
+    border-radius: 1rem;
+}
+.form-group {
+    display: block;
+    margin: 20px auto 20px auto;
+}
+.form-control {
+    background-color: aliceblue;
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgb(44, 44, 44);
+    width: 100%;
+    border: 2px solid aliceblue;
+    border-radius: 0.3rem;
+    padding: 5px;
+}
+.form-control:hover{
+    border: 2px solid rgb(29,29,136);
+}
+.multiple-choices {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    flex-wrap: wrap;
+}
+.form-radio, .form-checkbox {
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+.radio-label {
+    font-weight: 100;
+    width: 150px;
+}
+.checkbox-label {
+    font-weight: 100;
+    width: 300px;
+}
+.optional {
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+.btn-submit, .btn-reset {
+    display: block;
+    margin: 0 auto 0 auto;
+    width: 60%;
+    padding: 0.7rem;
+    border: 0px;
+    border-radius: 2rem;
+    color: aliceblue;
+    font-family: inherit;
+    font-size: 1rem;
+}
+.btn-submit {
+    background-color: rgba(0, 207, 0, 0.8);
+}
+.btn-submit:hover {
+    background-color: rgba(0, 183, 0, 0.8);
+}
+.btn-reset {
+    background-color: rgba(235, 48, 48, 0.8);
+}
+.btn-reset:hover {
+    background-color: rgba(200, 48, 48, 0.8);
+}
+.text-center {
+    text-align: center;
+}
