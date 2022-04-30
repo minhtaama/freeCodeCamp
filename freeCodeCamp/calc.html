@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;700&display=swap');
+        :root {
+            font-family: 'Roboto Mono', monospace;
+        }
+        body {
+            max-width: max-content;
+            margin: 0 auto 0 auto;
+            text-align: center;
+        }
+        label {
+            display: block;
+            text-align: left;
+        }
+        table {
+            margin: 0 auto 0 auto;
+            border: 5px solid #161513;
+            border-spacing: 0.5rem;
+            font-size: 1.5rem;
+            background-color: #22333B;
+            border-radius: 10px;
+            width: 300px;
+        }
+        #dis-td {
+            border: 5px solid #161513;
+            padding: 0;
+            background-color: #161513;
+            color: #f2f4f3;
+            border-radius: 15px;
+        }
+        th {
+            border: 2px solid black;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            font-size: 1.5rem;
+            border: 2px solid #a9927d;
+            background-color: #a9927d;
+            color: #0a0908;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+        button:hover {
+            background-color: #5e503f;
+        }
+        button:active {
+            background-color: #a9927d;
+        }
+        #clear, #equal {
+            padding-top: 100%;
+            padding-bottom: 100%
+        }
+        p {
+            display: block;
+            margin: 0.6rem;
+            height: 1.2rem;
+            line-height: 13px;
+        }
+        #result {
+            font-size: 0.7rem;
+            margin: 0.1rem;
+        }
+        #currOprt {
+            margin: 0.1rem;
+            font-weight: 300;
+        }
+        #display {
+            color: rgb(255, 57, 57);
+        }
+    </style>
+</head>
+<body>
+    <h1>CALCULATOR</h1>
+    <table>
+        <tr>
+            <td colspan="5" id="dis-td"><p id="result">0</p><p id="currOprt">~</p><p id="display">0</p></td>
+        </tr>   
+        <tr>
+            <td><button id="num1" onclick="display('1')">1</button></td>
+            <td><button id="num2" onclick="display('2')">2</button></td>
+            <td><button id="num3" onclick="display('3')">3</button></td>
+            <td><button id="+" onclick="calc('+')">+</button></td>
+            <td rowspan="2"><button id="clear">c</button></td>
+
+        </tr>
+        <tr>
+            <td><button id="num4" onclick="display('4')">4</button></td>
+            <td><button id="num5" onclick="display('5')">5</button></td>
+            <td><button id="num6" onclick="display('6')">6</button></td>
+            <td><button id="-" onclick="calc('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button id="num7" onclick="display('7')">7</button></td>
+            <td><button id="num8" onclick="display('8')">8</button></td>
+            <td><button id="num9" onclick="display('9')">9</button></td>
+            <td><button id="*" onclick="calc('x')">x</button></td>
+            <td rowspan="2"><button id="equal" onclick="calc('=')">=</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button id="num0" onclick="display('0')">0</button></td>
+            <td><button id="dot">.</button></td>
+            <td><button id="/" onclick="calc('/')">/</button></td>
+        </tr>
+    </table>
+</body>
+<script>
+    //KHAI BÁO BIẾN GLOBAL
+    let input = document.getElementById("display"),
+        currentNum = "",
+        currOprt = "";
+
+    //FUNCTION HIỂN THỊ VÀ LẤY INPUT
+    function display(value) {
+        if (currOprt == "=") {                                            //sau khi ấn dấu "=" và muốn thực hiện phép tính tiếp theo
+            input.innerText = "0";
+            currOprt = "";
+        }
+        if (input.innerText.length < 12){
+            if (input.innerText == "0"){
+                input.innerText = "";
+                input.innerText+=value;
+            } else {
+                input.innerText+=value;
+            }
+        }
+    }
+    
+    //FUNCTION KHI ẤN CÁC NÚT TOÁN TỬ
+    function calc(oprt) {
+        console.log("<currInput>", parseInt(input.innerText));
+        console.log("before-bind", currOprt);
+        if (currOprt == "=") {
+            input.innerText = "0";
+            currOprt = "";
+        }
+        if(currOprt == "" && oprt != "=") {                                 //khi vừa mới nhập input, ấn nút toán tử nhưng chưa gán giá trị vào currOprt:
+            currentNum = parseInt(input.innerText);                         //chuyển typeof của currentNum từ "string" sang "number";
+            input.innerText = "0";                                          //reset input thành "0"
+        }
+        console.log("currNum", typeof currentNum, currentNum);
+        if (currOprt != "") {                                               //khi currOprt đã được gán giá trị toán tử, lần ấn các nút toán tử tiếp theo sẽ tính giá trị của 2 số đã có
+            if (input.innerText != "0") {                                   //khi ta đã nhập 1 số nào đó sau khi ấn nút toán tử
+                switch(currOprt) {
+                    case "+":
+                        currentNum += parseInt(input.innerText);
+                        currOprt = "";
+                    break;
+                    case "-":
+                        currentNum -= parseInt(input.innerText);
+                        currOprt = "";
+                    break;
+                    case "x":
+                        currentNum *= parseInt(input.innerText);
+                        currOprt = "";
+                    break;
+                    case "/":
+                        currentNum /= parseInt(input.innerText);
+                        currOprt = "";
+                    break;
+                }
+            }
+        }
+        switch (oprt) {                                                      //gán nút toán tử vào giá trị của currOprt, trừ nút "="
+            case "+":
+                currOprt = "+";
+                input.innerText = "0";
+                break;
+            case "-":
+                currOprt = "-";
+                input.innerText = "0";
+                break;
+            case "x":
+                currOprt = "x";
+                input.innerText = "0";
+                break;
+            case "/":
+                currOprt = "/";
+                input.innerText = "0";
+                break;
+        }
+        if (oprt == "=") {                                              //Nếu ấn nút "="
+            switch(currOprt) {
+                case "+":
+                    currentNum += parseInt(input.innerText);
+                break;
+                case "-":
+                    currentNum -= parseInt(input.innerText);
+                break;
+                case "x":
+                    currentNum *= parseInt(input.innerText);
+                break;
+                case "/":
+                    currentNum /= parseInt(input.innerText);
+                break;
+            }
+            input.innerHTML = "<b>" + currentNum + "</b><br><span style='font-size: 0.7rem;'>Please input new number or click C</span>";
+            currOprt = "=";
+        }
+        console.log( "result", typeof currentNum, currentNum);
+        document.getElementById("result").innerText = currentNum;
+        console.log("after-bind", currOprt);
+        document.getElementById("currOprt").innerText = currOprt;
+        console.log( "---");
+    }
+    //NÚT CLEAR
+    document.getElementById("clear").addEventListener("click", () => {
+        currentNum = "";
+        currOprt = "";
+        input.innerText = "0";
+        document.getElementById("result").innerText = "0";
+        document.getElementById("currOprt").innerText = "~";
+    })
+</script>
+</html>
